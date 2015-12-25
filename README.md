@@ -1,20 +1,24 @@
-## [SUV](https://github.com/zachmokahn/SUV) Examples
+# [SUV](https://github.com/zachmokahn/SUV) Examples
 
 _depends on libuv version 1.8.0-r1, install it according to the [repo](https://github.com/libuv/libuv/commit/5467299450ecf61635657557b6e01aaaf6c3fdf4) documentation_
 
-A set of examples displaying what's possible with the [SUV](https://github.com/zachmokahn/SUV) library's API at the
-moment.
+### Building the Project with [SwiftPM](https://github.com/apple/swift-package-manager):
 
-### Building the Project:
+##### using toolchain _Swift 2.2 Snapshot - December 22, 2015_ or later
 
-Right now the [SwiftPM](https://github.com/apple/swift-package-manager) is
-acting a little funky while linking an executable in the
-[Swiftest](https://github.com/bppr/Swiftest) package (I assume it's a general
-executable-linking problem but I haven't gotten around to exploring it yet).
+  ```bash
+    > swift build
+  ```
 
-Eventual it will be as easy as `> swift build`, but for now use the workaround.
 
-#### _workaround_:
+##### using toolchain earlier than _Swift 2.2 Snapshot - December 22, 2015_
+
+When using aversion ealier than the snapshot on December 22,2015 the SwiftPM will
+act a little funky when linking executables from a dependency. The dependency with
+the issue in this project is [Swiftest](https://github.com/bppr/Swiftest). There is
+a workaround for this linking issues.
+
+__workaround__:
 
 * Attempt to build the project.
 
@@ -55,15 +59,17 @@ Eventual it will be as easy as `> swift build`, but for now use the workaround.
 * You should get the final bit of output:
 
   ```bash
-    Compiling Swift Module 'SUV' (35 sources)
+    Compiling Swift Module 'SUV' (86 sources)
     Linking Library:  .build/debug/SUV.a
-    Compiling Swift Module 'Spec' (17 sources)
+    Compiling Swift Module 'Spec' (23 sources)
     Linking Executable:  .build/debug/Spec
+    Compiling Swift Module 'Cat' (1 sources)
     Compiling Swift Module 'EchoServer' (1 sources)
+    Linking Executable:  .build/debug/Cat
+    Linking Executable:  .build/debug/EchoServer
   ```
 
 * Now you're read to use the examples
-
 
 ### Examples:
 
