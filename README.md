@@ -1,8 +1,8 @@
-## SUV Examples
+## [SUV](https://github.com/zachmokahn/SUV) Examples
 
 _depends on libuv version 1.8.0-r1, install it according to the [repo](https://github.com/libuv/libuv/commit/5467299450ecf61635657557b6e01aaaf6c3fdf4) documentation_
 
-A set of examples displaying what's possible with the SUV library's API at the
+A set of examples displaying what's possible with the [SUV](https://github.com/zachmokahn/SUV) library's API at the
 moment.
 
 ### Building the Project:
