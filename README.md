@@ -69,7 +69,6 @@ __workaround__:
     Linking Executable:  .build/debug/EchoServer
   ```
 
-* Now you're read to use the examples
 
 ### Examples:
 
@@ -91,4 +90,38 @@ Spins up a server that echos the requests made on `http://localhost:8000`.
   User-Agent: curl/7.35.0
   Host: localhost:8000
   Accept: */*
+  ```
+
+### CAT
+Reads the file `./Sources/Cat/test.txt` and prints it to standard out
+
+* execute the command
+
+  ```bash
+  > ./.build/debug/Cat
+
+      ,';,               ,';,
+     ,' , :;             ; ,,.;
+     | |:; :;           ; ;:|.|
+     | |::; ';,,,,,,,,,'  ;:|.|    ,,,;;;;;;;;,,,
+     ; |''  ___      ___   ';.;,,''             ''';,,,
+     ',:   /   \    /   \    .;.                      '';,
+     ;    /    |    |    \     ;,                        ';,
+    ;    |    /|    |\    |    :|                          ';,
+    |    |    \|    |/    |    :|     ,,,,,,,               ';,
+    |     \____| __ |____/     :;  ,''                        ;,
+    ;           /  \          :; ,'                           :;
+     ',        `----'        :; |'                            :|
+       ',,  `----------'  ..;',|'                             :|
+      ,'  ',,,,,,,,,,,;;;;''  |'                              :;
+    ,'  ,,,,                  |,                              :;
+    | ,'   :;, ,,''''''''''   '|.   ...........                ';,
+    ;       :;|               ,,';;;''''''                      ';,
+     ',,,,,;;;|.............,'                          ....      ;,
+               ''''''''''''|        .............;;;;;;;''''',    ':;
+                           |;;;;;;;;'''''''''''''             ;    :|
+                                                          ,,,'     :;
+                                              ,,,,,,,,,,''       .;'
+                                             |              .;;;;'
+                                             ';;;;;;;;;;;;;;'
   ```
