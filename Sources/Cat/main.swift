@@ -1,6 +1,6 @@
 import SUV
 
-func cat(openRequest: FilesystemRequest, _ buffer: Buffer) {
+func cat(openRequest: FSRequest, _ buffer: Buffer) {
   FS(openRequest.loop).read(openRequest.result, buffer, openRequest.result.size) { readRequest in
     guard(readRequest.result.size > 0) else {
       openRequest.close()
