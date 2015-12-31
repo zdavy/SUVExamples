@@ -1,4 +1,5 @@
 import SUV
+import Glibc
 /*  */
 public extension Buffer {
   public convenience init(_ original: Buffer, _ size: Int) {
@@ -7,6 +8,7 @@ public extension Buffer {
   }
 
   public func free() {
+    Glibc.free(self.pointer.memory.base)
   }
 }
 /*  */
@@ -54,7 +56,7 @@ let inputPipe = PipeHandle(Loop.defaultLoop)
 let outputPipe = PipeHandle(Loop.defaultLoop)
 let filePipe = PipeHandle(Loop.defaultLoop)
 
-FS(Loop.defaultLoop).open("./Sources/Tee/test.txt", .ACCESS(66), .MODE(777)) { openRequest in
+FS(Loop.defaultLoop).open("./Sources/Tee/test.txt", .Or(.Create, .ReadWrite), .MODE(0644)) { openRequest in
   inputPipe.open(.STDIN)
   outputPipe.open(.STDOUT)
   filePipe.open(.FILE(openRequest.result))
