@@ -1,16 +1,16 @@
 import SUV
 
 func cat(openRequest: FSRequest, _ buffer: Buffer) {
-  FS(openRequest.loop).read(openRequest.result, buffer, openRequest.result.size) { readRequest in
-    guard(readRequest.result.size > 0) else {
+  FS(openRequest.loop).read(.File(openRequest.result), buffer, Int(openRequest.result)) { readRequest in
+    guard(readRequest.result > 0) else {
       openRequest.close()
       return
     }
 
-    FS(readRequest.loop).write(.STDOUT, buffer, readRequest.result.size) { writeRequest in
+    FS(readRequest.loop).write(.Out, buffer, Int(readRequest.result)) { writeRequest in
       writeRequest.cleanup()
 
-      if(writeRequest.result.size >= 0) {
+      if(writeRequest.result >= 0) {
         cat(openRequest, buffer)
       } else {
         openRequest.close()
@@ -20,11 +20,10 @@ func cat(openRequest: FSRequest, _ buffer: Buffer) {
   }
 }
 
-FS(Loop.defaultLoop).open("./Sources/Cat/test.txt", .ReadOnly, .Read(.User)) { openRequest in
-  if(openRequest.result.size >= 0) {
+FS(Loop.defaultLoop).open(Process.arguments[1], .ReadOnly, .Read(.User)) { openRequest in
+  if(openRequest.result >= 0) {
     cat(openRequest, Buffer())
   }
 }
-
 
 Loop.defaultLoop.run(.Default)

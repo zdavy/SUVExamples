@@ -93,12 +93,56 @@ Spins up a server that echos the requests made on `http://localhost:8000`.
   ```
 
 ### CAT
-Reads the file `./Sources/Cat/test.txt` and prints it to standard out
+Reads the provided file and prints it to standard out
 
 * execute the command
 
   ```bash
-  > ./.build/debug/Cat
+  > ./.build/debug/Cat ./Resources/cat.txt
+
+      ,';,               ,';,
+     ,' , :;             ; ,,.;
+     | |:; :;           ; ;:|.|
+     | |::; ';,,,,,,,,,'  ;:|.|    ,,,;;;;;;;;,,,
+     ; |''  ___      ___   ';.;,,''             ''';,,,
+     ',:   /   \    /   \    .;.                      '';,
+     ;    /    |    |    \     ;,                        ';,
+    ;    |    /|    |\    |    :|                          ';,
+    |    |    \|    |/    |    :|     ,,,,,,,               ';,
+    |     \____| __ |____/     :;  ,''                        ;,
+    ;           /  \          :; ,'                           :;
+     ',        `----'        :; |'                            :|
+       ',,  `----------'  ..;',|'                             :|
+      ,'  ',,,,,,,,,,,;;;;''  |'                              :;
+    ,'  ,,,,                  |,                              :;
+    | ,'   :;, ,,''''''''''   '|.   ...........                ';,
+    ;       :;|               ,,';;;''''''                      ';,
+     ',,,,,;;;|.............,'                          ....      ;,
+               ''''''''''''|        .............;;;;;;;''''',    ':;
+                           |;;;;;;;;'''''''''''''             ;    :|
+                                                          ,,,'     :;
+                                              ,,,,,,,,,,''       .;'
+                                             |              .;;;;'
+                                             ';;;;;;;;;;;;;;'
+  ```
+
+### TEE
+Read from standard input and logs to a file and standard output
+
+* execute the command
+
+
+  ```bash
+  > ./.build/debug/Cat ./Resources/cat.txt | ./.build/debug/Tee ./Resources/tee.txt | grep "/"
+
+ ',:   /   \    /   \    .;.                      '';,
+ ;    /    |    |    \     ;,                        ';,
+;    |    /|    |\    |    :|                          ';,
+|    |    \|    |/    |    :|     ,,,,,,,               ';,
+|     \____| __ |____/     :;  ,''                        ;,
+;           /  \          :; ,'                           :;
+
+  > ./.build/debug/Cat ./Resources/tee.txt
 
       ,';,               ,';,
      ,' , :;             ; ,,.;
